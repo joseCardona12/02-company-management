@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+
+  /* Background colors */
+  --background-white: rgb(255, 255, 255);
+  --background-black: #1d1d1d;
+  --background-gradient-purple-light: rgb(192, 132, 252);
+  --background-gradient-pink:rgb(236, 72, 153);
+  --background-gradient-red:rgb(239, 68, 68);
+  --background-gray-light-inactive:rgb(243, 244, 246);
+  --background-gray-light-pagination:rgb(229, 231, 235);
+
+  /* Text colors*/
+  --background-color-transparent: #1d1d1dd3;
+  --color-black: rgb(31, 41, 55);
+  --color-medium-gray: rgb(75, 85, 99);
+  --color-gray-light: rgb(107, 114, 128);
+  --color-white:rgb(255, 255, 255);
+
+  /* Accent colors and Buttoms */
+  /*Vancancies*/
+  --color-purple-vacancy-normal: rgb(168, 85, 247);
+  --color-purple-vacancy-hover: rgb(147, 51, 234);
+
+  /*Companies*/
+  --color-pink-company-normal: rgb(236, 72, 153);
+  --color-pink-company-hover: rgb(219, 39, 119);
+
+  /*Delete bottons */
+  --color-text:rgb(239, 68, 68);
+  --color-text-hover:rgb(220, 38, 38);
+  --background-color-hover:rgb(254, 242, 242);
+
+  /*Border colors and focus*/
+  --border-gray: rgb(229, 231, 235);
+  --purple-focus: rgb(233, 213, 255);
+  --pink-focus:rgb(251, 207, 232);
+
+  /*Spaces paddings*/
+  --padding-small: 0.5rem;
+  --padding-medium: 1rem;
+  --padding-large: 1.5rem;
+
+  /*Spaces margins*/
+  --margin-small: 0.5rem;
+  --margin-medium: 1rem;
+  --margin-large: 1.5rem;
+
+  /*Border radius*/
+  --border-radius-small: 0.25rem;
+  --border-radius-medium: 0.5rem;
+  --border-radius-large: 0.75rem;
+  --border-radius-big: 1rem;
+
+  /* Border color*/
+  --border-color-gray: rgb(209, 213, 219);
+
+  /* Box shadow*/
+  --box-shadown-normal: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+
+  /*Fonts */
+  --font-main: "Space Grotesk", sans-serif;
+}
+
+html{
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+h1,h2,h3,h4,h5,h6{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0;
+    font-family: var(--font-main);
+    background: linear-gradient(90deg, var(--background-gradient-purple-light), var(--background-gradient-pink), var(--background-gradient-red));
+}
