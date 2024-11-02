@@ -27,7 +27,7 @@ export interface IVacantResponse{
     contact:string
   }
   
-  export interface IVacancy{
+  export interface IVacantCreate{
     title: string
     description: string
     status: string,

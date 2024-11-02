@@ -7,4 +7,27 @@
     padding: 2px var(--padding-small);
     color: var(--color-gray-light);
     font-size: .9rem;
+    position: relative;
+
+    .content-found{
+        position: absolute;
+        top: 120%;
+        left: 0;
+        width: 100%;
+        background-color: var(--background-white);
+        border: 1px solid var(--border-color-gray);
+        z-index: 10;
+        border-radius: var(--border-radius-medium);
+
+        .found-item{
+            list-style: none;
+            padding: 5px var(--padding-small);
+            border-radius: var(--border-radius-medium);
+            cursor: pointer;
+
+            &:hover{
+                background-color: var(--background-gray-light-inactive);
+            }
+        }
+    }
 }
