@@ -26,7 +26,7 @@ export default function Vacant({title,vacancies}: IVacantProps):React.ReactNode{
                     <Card key={index}>
                         <h4>{vacant.title}</h4>
                         <p>{vacant.description}</p>
-                        <p>State: {vacant.status}</p>
+                        <p>State: <span style={{backgroundColor: "var(--color-purple-vacancy-normal)"}}>{vacant.status}</span></p>
                         <p>Company: {vacant.company?.name}</p>
                     </Card>
                 ))}

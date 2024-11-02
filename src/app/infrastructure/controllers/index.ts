@@ -1,5 +1,7 @@
-import vacantController from "./vacantController";
+import VacantController from "./vacantController";
+import CompanyController from "./companyController";
 
 export {
-    vacantController,
+    VacantController,
+    CompanyController
 }

@@ -1,12 +1,13 @@
 "use client";
 
-import { Vacant } from "@/ui/organisms";
+import { Vacant, Company } from "@/ui/organisms";
 import { IVacantResponse } from "./core/application/dto/vacant/vacantResponse";
 import { useSectionState } from "./core/application/global-state";
+import { ICompanyResponse } from "./core/application/dto/company";
 
 interface IProviderSectionProps{
     vacancies: IVacantResponse,
-    companies: {}
+    companies: ICompanyResponse
 }
 export default function ProviderSection({vacancies, companies}: IProviderSectionProps):React.ReactNode{
     const {section} = useSectionState((state)=>state)
@@ -14,7 +15,10 @@ export default function ProviderSection({vacancies, companies}: IProviderSection
         <>
         {section === "companies" 
             ?
-            <div>Companies</div>
+            <Company
+                title="Companies"
+                companies={companies.content}
+            />
             :
             <Vacant 
                 title="Vacants" 

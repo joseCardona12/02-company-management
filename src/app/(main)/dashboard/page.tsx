@@ -1,10 +1,10 @@
 import { Section } from "@/ui/templates";
-import { Vacant } from "@/ui/organisms";
 import "./dashboardStyles.scss";
 import ProviderPagination from "@/app/ProviderPagination";
 import { IVacantResponse } from "@/app/core/application/dto/vacant/vacantResponse";
-import { vacantController } from "@/app/infrastructure/controllers";
+import { VacantController, CompanyController } from "@/app/infrastructure/controllers";
 import ProviderSection from "@/app/ProviderSection";
+import { ICompanyResponse } from "@/app/core/application/dto/company";
 
 
 interface IDashboardProps{
@@ -26,7 +26,8 @@ export default async function Dashboard({searchParams}: IDashboardProps) {
     const page: number = searchParams.page ? parseInt(searchParams.page) : 1;
     const size: number = searchParams.totalPage ? parseInt(searchParams.totalPage) : 6;
 
-    const vacancies: IVacantResponse = await vacantController.findAll({page,size});
+    const vacancies: IVacantResponse = await VacantController.findAll({page,size});
+    const companies: ICompanyResponse = await CompanyController.findAllByPagination({page,size});
     return (
         <ProviderPagination
         pagination={{page,totalPage: vacancies.totalPages}}
@@ -35,7 +36,7 @@ export default async function Dashboard({searchParams}: IDashboardProps) {
                 <Section>
                     <ProviderSection
                         vacancies={vacancies}
-                        companies={{}}
+                        companies={companies}
                     />
                 </Section>
             </div>

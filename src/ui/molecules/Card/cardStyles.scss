@@ -4,6 +4,10 @@
     padding: var(--padding-medium);
     width: calc((100% / 3) - var(--padding-medium));
 
+    h4{
+        font-weight:bold;
+    }
+
     .card-footer{
         display: flex;
         justify-content: flex-end;
