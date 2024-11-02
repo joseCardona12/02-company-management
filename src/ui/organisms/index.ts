@@ -1,4 +1,4 @@
-import Vacant from "./Vacant";
+import Vacant from "./Vacant/Vacant";
 
 export {
     Vacant,

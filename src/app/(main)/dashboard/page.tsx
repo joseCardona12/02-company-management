@@ -1,3 +1,5 @@
+import { Section } from "@/ui/templates";
+import { Vacant } from "@/ui/organisms";
 import "./dashboardStyles.scss";
 import ProviderPagination from "@/app/ProviderPagination";
 
@@ -19,13 +21,17 @@ export const generateMetadata = async({searchParams}: IDashboardProps):Promise<{
 }
 export default async function Dashboard({searchParams}: IDashboardProps) {
     const page: number = searchParams.page ? parseInt(searchParams.page) : 1;
-    const size: number = searchParams.totalPage ? parseInt(searchParams.totalPage) : 8;
+    const size: number = searchParams.totalPage ? parseInt(searchParams.totalPage) : 1;
     return (
         <ProviderPagination
         pagination={{page,size}}
         > 
             <div className="dashboard">
-                
+                <Section>
+                    <Vacant
+                        title="Vacants"
+                    />
+                </Section>
             </div>
         </ProviderPagination>
     )

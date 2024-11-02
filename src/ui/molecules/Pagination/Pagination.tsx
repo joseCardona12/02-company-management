@@ -1,4 +1,3 @@
-
 "use client";
 import { usePaginationState } from "@/app/core/application/global-state"
 import { ArrowBackIcon, ArrowRightIcon } from "@/assets/icons"

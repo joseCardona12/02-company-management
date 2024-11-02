@@ -1,6 +1,6 @@
 interface IButtonProps extends React.HTMLAttributes<HTMLButtonElement>{
     icon?: React.ReactElement
-    text:string
+    text?:string
 }
 
 export default function Button({
