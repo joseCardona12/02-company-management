@@ -13,11 +13,42 @@ export default function Vacant({title}: IVacantProps):React.ReactNode{
                 <h3 className="title">{title}</h3>
             </div>
             <div className="section-cards">
-                <div>
-                    <Card>
-                        <div>card</div>
-                    </Card> 
-                </div>
+                <Card>
+                    <>
+                        <h4>Frontend</h4>
+                        <p>Lorem ipsum dolor sit amet</p>
+                    </>
+                </Card> 
+                <Card>
+                    <>
+                        <h4>Frontend</h4>
+                        <p>Lorem ipsum dolor sit amet</p>
+                    </>
+                </Card> 
+                <Card>
+                    <>
+                        <h4>Frontend</h4>
+                        <p>Lorem ipsum dolor sit amet</p>
+                    </>
+                </Card> 
+                <Card>
+                    <>
+                        <h4>Frontend</h4>
+                        <p>Lorem ipsum dolor sit amet</p>
+                    </>
+                </Card> 
+                <Card>
+                    <>
+                        <h4>Frontend</h4>
+                        <p>Lorem ipsum dolor sit amet</p>
+                    </>
+                </Card> 
+                <Card>
+                    <>
+                        <h4>Frontend</h4>
+                        <p>Lorem ipsum dolor sit amet</p>
+                    </>
+                </Card> 
             </div>
         </section>
     )

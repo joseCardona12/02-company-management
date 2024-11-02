@@ -1,0 +1,17 @@
+.buttonIcon{
+    border: 1px solid var(--border-color-gray);
+    padding: var(--padding-small);
+    border-radius: var(--border-radius-small);
+
+    &:hover{
+        background-color: var(--background-gray-light-inactive);
+    }
+
+    .icon-left{
+        color: var(--color-purple-vacancy-normal);
+    }
+
+    .icon-right{
+        color: var(--color-text);
+    }
+}

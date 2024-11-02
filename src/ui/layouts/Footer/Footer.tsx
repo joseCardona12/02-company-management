@@ -1,4 +1,4 @@
-import { Pagination } from "../molecules";
+import { Pagination } from "@/ui/molecules";
 
 export default function Footer():React.ReactNode{
     return(

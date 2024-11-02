@@ -1,5 +1,7 @@
+"use client";
 import { DeleteIcon, EditIcon } from "@/assets/icons";
-import { Button } from "../../atoms";
+import { Button } from "@/ui/atoms";
+import "./cardStyles.scss";
 
 export default function Card({children}: {children: React.ReactNode}):React.ReactNode{
     return(
@@ -9,9 +11,13 @@ export default function Card({children}: {children: React.ReactNode}):React.Reac
             </div>
             <div className="card-footer">
                 <Button 
-                    icon={<EditIcon />} />
-                <Button 
-                    icon={<DeleteIcon />} />
+                    className="buttonIcon"
+                    onClick={()=>console.log("ok")}
+                    icon={<EditIcon className="icon-left" />} />
+                <Button
+                    className="buttonIcon"
+                    onClick={()=>console.log("ok")}
+                    icon={<DeleteIcon className="icon-right" />} />
             </div>
         </div>
     )
