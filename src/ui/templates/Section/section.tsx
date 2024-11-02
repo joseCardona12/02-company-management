@@ -1,5 +1,6 @@
 import { Footer, Header } from "@/ui/layouts";
 import "./sectionStyles.scss";
+import { Modal } from "@/ui/organisms";
 
 export default function Section({children}: {children: React.ReactNode}):React.ReactNode{
     return(
@@ -9,6 +10,9 @@ export default function Section({children}: {children: React.ReactNode}):React.R
             />
             <main className="main">
                 {children}
+                <Modal>
+                    <div>d</div>
+                </Modal>
             </main>
             <Footer />
         </div>
