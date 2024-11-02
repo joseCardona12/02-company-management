@@ -17,6 +17,7 @@ export default function Pagination():React.ReactNode{
                 icon={<ArrowBackIcon className="icon-left"/>}
                 onClick={() => handleChangePagination(pagination.page - 1)}
             />
+            <span>Page</span>
             <span>{pagination.page}</span>
             <span>of</span>
             <span>{pagination.size}</span>

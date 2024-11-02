@@ -1,8 +1,8 @@
 .card{
     border: 1px solid var(--border-gray);
-    border-radius: var(--border-radius-small);
+    border-radius: var(--border-radius-medium);
     padding: var(--padding-medium);
-    width: calc((100% /3) - var(--padding-medium));
+    width: calc((100% / 3) - var(--padding-medium));
 
     .card-footer{
         display: flex;

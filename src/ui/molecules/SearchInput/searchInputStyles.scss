@@ -1,0 +1,10 @@
+.search{
+    display: flex;
+    align-items: center ;
+    gap: var(--padding-small);
+    border: 1px solid var(--border-color-gray);
+    border-radius: var(--border-radius-big);
+    padding: 2px var(--padding-small);
+    color: var(--color-gray-light);
+    font-size: .9rem;
+}
