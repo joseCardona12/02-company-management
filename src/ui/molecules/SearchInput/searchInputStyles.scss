@@ -29,5 +29,14 @@
                 background-color: var(--background-gray-light-inactive);
             }
         }
+
+        .found-item.delete{
+            border: 1px solid var(--background-gradient-red);
+            transition: background-color .2s ease-in-out;
+
+            &:hover{
+                background-color: var(--background-color-hover);
+            }
+        }
     }
 }

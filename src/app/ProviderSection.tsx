@@ -2,7 +2,7 @@
 
 import { Vacant, Company } from "@/ui/organisms";
 import { IVacantResponse } from "./core/application/dto/vacant/vacantResponse";
-import { useSectionState, useVacantsState } from "./core/application/global-state";
+import { useSectionState, useVacantSelectState, useVacantsState } from "./core/application/global-state";
 import { ICompanyResponse } from "./core/application/dto/company";
 import { useEffect } from "react";
 
@@ -13,6 +13,7 @@ interface IProviderSectionProps{
 export default function ProviderSection({vacancies, companies}: IProviderSectionProps):React.ReactNode{
     const {section} = useSectionState((state)=>state);
     const {setVacants} = useVacantsState((state)=>state);
+    const {vacantSelect} = useVacantSelectState((state)=>state);
 
     useEffect(()=>{
         setVacants(vacancies.content);
@@ -28,7 +29,13 @@ export default function ProviderSection({vacancies, companies}: IProviderSection
             :
             <Vacant 
                 title="Vacants" 
-                vacancies={vacancies.content} 
+                vacancies={
+                    vacantSelect.length > 0
+                    ?
+                    vacantSelect
+                    :
+                    vacancies.content
+                } 
             />
         }   
         </>
