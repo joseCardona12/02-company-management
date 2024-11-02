@@ -8,11 +8,11 @@ interface IProviderPaginationProps{
 }
 interface IPaginationProps{
     page:number,
-    size: number
+    totalPage: number
 }
 
 export default function ProviderPagination({children, pagination}: IProviderPaginationProps):React.ReactNode{
-    const {pagination: paginationState,setPagination} = usePaginationState((state)=>state);
+    const {setPagination} = usePaginationState((state)=>state);
 
     useEffect(()=>{
         setPagination(pagination);

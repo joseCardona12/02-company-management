@@ -5,27 +5,31 @@ import "./paginationStyles.scss";
 import { Button } from "@/ui/atoms";
 
 export default function Pagination():React.ReactNode{
-    const {pagination} = usePaginationState((state)=>state);
+    const {pagination, setPagination} = usePaginationState((state)=>state);
+    console.log(pagination);
 
     const handleChangePagination = (newPage: number):void =>{
-        console.log(newPage);
+        setPagination({page: newPage, totalPage: pagination.totalPage});
     }
+    const currentPage:number = pagination.page
     return(
         <div className="pagination flex-direction-row">
             <Button
-                className="buttonIcon"
+                className={currentPage === pagination.totalPage ? "buttonIcon disabled" : "buttonIcon"}
                 icon={<ArrowBackIcon className="icon-left"/>}
-                onClick={() => handleChangePagination(pagination.page - 1)}
+                disabled={currentPage === pagination.totalPage}
+                onClick={() => handleChangePagination(currentPage - 1)}
             />
             <span>Page</span>
             <span>{pagination.page}</span>
             <span>of</span>
-            <span>{pagination.size}</span>
+            <span>{pagination.totalPage}</span>
 
             <Button
-                className="buttonIcon"
+                className={currentPage === pagination.totalPage ? "buttonIcon disabled" : "buttonIcon"}
                 icon={<ArrowRightIcon className="icon-right"/>}
-                onClick={() => handleChangePagination(pagination.page - 1)}
+                disabled={currentPage === pagination.totalPage}
+                onClick={() => handleChangePagination(currentPage + 1)}
             />
         </div>
     )

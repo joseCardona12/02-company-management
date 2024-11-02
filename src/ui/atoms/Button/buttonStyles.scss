@@ -15,14 +15,24 @@
         color: var(--color-text);
     }
 }
+.buttonIcon.disabled{
+    background-color: var(--background-gray-light-inactive);
+}
 
 .buttonNavigation{
     display: flex;
     align-items: center;
     gap: var(--padding-small);
-    background-color: var(--color-purple-vacancy-normal);
-    color: var(--color-white);
+    background-color: var(--background-gray-light-inactive);
+    color: var(--color-black);
     border-radius: var(--border-radius-big);
     padding: 5px var(--padding-medium);
     font-size: .8rem;
+    transition: background-color .3s ease,
+                color .3s ease;
+}
+
+.buttonNavigation.active{
+    background-color: var(--color-purple-vacancy-normal);
+    color: var(--color-white);
 }

@@ -7,13 +7,13 @@ interface IPaginationState{
 
 interface IPaginationProps{
     page:number,
-    size:number
+    totalPage:number
 }
 
 export const usePaginationState = create<IPaginationState>((set)=>({
     pagination: {
         page: 1,
-        size: 1
+        totalPage: 1
     },
-    setPagination: ({page,size}: IPaginationProps) => set({pagination: {page,size}})
+    setPagination: ({page,totalPage}: IPaginationProps) => set({pagination: {page,totalPage}})
 }))
