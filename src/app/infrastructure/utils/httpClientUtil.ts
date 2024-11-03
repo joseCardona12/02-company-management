@@ -35,6 +35,15 @@ export default class HttpClientUtil{
         });
         return this.managementError(response);
     }
+    async delete<T>(url:string, id:string | number):Promise<T>{
+        const headers = this.getHeaders();
+        const response = await fetch(`${this.baseUrl}${url}/${id}`,{
+            headers,
+            method:"DELETE",
+            cache:"no-store"
+        });
+        return this.managementError(response);
+    }
 
     private getHeaders(): {[key:string]:string}{
         return {

@@ -1,0 +1,9 @@
+.modal-footer{
+    position: absolute;
+    right: 10%;
+    bottom: 10%;
+    background-color: var(--background-white);
+    padding: var(--padding-small);
+    border-radius: var(--border-radius-medium);
+    z-index: 100000;
+}

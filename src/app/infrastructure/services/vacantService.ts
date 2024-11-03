@@ -19,4 +19,7 @@ export default class VacantService{
     async update(vacant:IVacantAddRequest, id:string | number):Promise<IVacant | IVacantErrorResponse>{
         return await this.httpClientUtil.put<IVacant, IVacantAddRequest>("vacants",vacant,id)
     }
+    async delete(id:string | number):Promise<IVacant | IVacantErrorResponse>{
+        return await this.httpClientUtil.delete<IVacant>("vacants",id);
+    }
 }

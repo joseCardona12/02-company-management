@@ -6,6 +6,7 @@ import { useCompanyState } from "./companyState";
 import { useOpenModal } from "./openModalState";
 import { useLoadingState } from "./loadingState";
 import { useIdState } from "./idState";
+import { useModalFooterMessageState } from "./modalFooterMessage";
 
 export {
     usePaginationState,
@@ -16,4 +17,5 @@ export {
     useOpenModal,
     useLoadingState,
     useIdState,
+    useModalFooterMessageState,
 }

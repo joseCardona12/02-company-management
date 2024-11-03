@@ -23,6 +23,10 @@ class VacantController{
         const data = await this.vacantService.update(vacant,id);
         return data;
     }
+    async delete(id:string | number):Promise<IVacant | IVacantErrorResponse>{
+        const data = await this.vacantService.delete(id);
+        return data;
+    }
 }
 
 export default new VacantController();

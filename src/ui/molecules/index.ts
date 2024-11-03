@@ -5,6 +5,7 @@ import SearchInput from "./SearchInput/SearchInput";
 import FormField from "./FormField/FormField";
 import FormTextArea from "./FormTextArea/FormTextArea";
 import SelectField from "./SelectField/SelectField";
+import ModalFooter from "./ModalFooter/ModalFooter";
 
 export {
     Pagination,
@@ -14,4 +15,5 @@ export {
     FormField,
     FormTextArea,
     SelectField,
+    ModalFooter
 }

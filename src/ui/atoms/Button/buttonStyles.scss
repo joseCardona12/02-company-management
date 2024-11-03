@@ -49,3 +49,16 @@
         background-color: var(--color-purple-vacancy-hover);
     }
 }
+
+.buttonDelete{
+    background-color: var(--color-text);
+    color: var(--color-white);
+    border-radius: var(--border-radius-small);
+    padding: var(--padding-small);
+    transition: background-color .3s ease;
+    width: 100%;
+
+    &:hover{
+        background-color: var(--color-text-hover);
+    }
+}

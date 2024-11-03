@@ -34,7 +34,7 @@ export default function Select({label, name, options, valueDefault, value, setVa
             <ul className="select-options">
                 {options.map((option:string, index:number)=>(
                     <>
-                    {index < 2 ?
+                    {index < 4 ?
                         <li key={index} onClick={()=>handleClickClose(option)}>{option}</li>
                         : 
                         null

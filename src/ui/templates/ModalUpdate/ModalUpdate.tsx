@@ -1,11 +1,14 @@
+"use client";
 import { ICompany } from "@/app/core/application/dto/company/companyResponse";
 import { IVacantAddRequest } from "@/app/core/application/dto/vacant";
-import { useIdState } from "@/app/core/application/global-state";
-import { manageError } from "@/app/core/application/utils";
+import { useIdState, useVacantsState } from "@/app/core/application/global-state";
+import { manageError, searchElementById } from "@/app/core/application/utils";
 import { VacantController } from "@/app/infrastructure/controllers";
 import { Button } from "@/ui/atoms";
 import { FormField, FormTextArea, SelectField } from "@/ui/molecules";
 import { Modal } from "@/ui/organisms";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 
 interface IModalProps{
@@ -33,13 +36,26 @@ export default function ModalUpdate({
 }:IModalProps): React.ReactNode {
 
     const {id} = useIdState((state)=>state); // Get id selected for user
+    const {vacants} = useVacantsState((state)=>state);
+    const router = useRouter();
     const handleUpdate = async():Promise<void> =>{
         if(!formData.title || !formData.description) return;
         const vacantUpdated = await VacantController.update(formData, id);
         console.log("vacantUpdated", vacantUpdated);
         manageError("Vacant updated successfully", "Error to update vacant", vacantUpdated);
         setFormData(initialFormData);
+        router.refresh();
     }
+    useEffect(()=>{
+      const vacantForUpdate = searchElementById(vacants, parseInt(id.toString()));
+      if(!vacantForUpdate) return;
+      setFormData({
+        title: vacantForUpdate.title,
+        description: vacantForUpdate.description,
+        status: vacantForUpdate.status,
+        companyId: vacantForUpdate.company?.name.toString() || "0",
+      });
+    })
     return(
         <Modal title="Edit Vacant">
             <form className="form">

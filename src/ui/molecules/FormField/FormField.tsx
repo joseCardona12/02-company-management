@@ -6,9 +6,10 @@ interface IFormFieldProps{
     value:string,
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void,
     error: boolean,
+    placeholder?:string
 }
 
-export default function FormField({label,name,value,onChange, error}:IFormFieldProps):React.ReactNode{
+export default function FormField({label,name,value,onChange, error, placeholder}:IFormFieldProps):React.ReactNode{
     return(
         <div className="form-field">
             <label htmlFor={name}>{label}</label>
@@ -18,6 +19,7 @@ export default function FormField({label,name,value,onChange, error}:IFormFieldP
                 value={value}
                 onChange={onChange}
                 error={error}
+                placeholder={placeholder}
             />
         </div>
     )
