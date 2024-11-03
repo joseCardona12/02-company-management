@@ -14,7 +14,7 @@ export default function Modal({
 
     const {setOpenModal} = useOpenModal((state)=>state);
     const handleCloseModal = ():void =>{
-        setOpenModal(false);
+        setOpenModal({state:false, type:""});
     }
     return(
         <div className="content-modal">

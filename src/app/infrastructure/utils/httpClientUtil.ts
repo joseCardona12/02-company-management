@@ -25,6 +25,16 @@ export default class HttpClientUtil{
         });
         return this.managementError(response);
     }
+    async put<T,B>(url:string, body:B, id:string | number):Promise<T>{
+        const headers = this.getHeaders();
+        const response = await fetch(`${this.baseUrl}${url}/${id}`,{
+            headers,
+            method:"PUT",
+            cache:"no-store",
+            body:JSON.stringify(body)
+        });
+        return this.managementError(response);
+    }
 
     private getHeaders(): {[key:string]:string}{
         return {

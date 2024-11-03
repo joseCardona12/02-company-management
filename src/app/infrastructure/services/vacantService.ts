@@ -15,4 +15,8 @@ export default class VacantService{
     async create(vacant: IVacantAddRequest):Promise<IVacant | IVacantErrorResponse>{
         return await this.httpClientUtil.post<IVacant,IVacantAddRequest>("vacants",vacant);
     }
+
+    async update(vacant:IVacantAddRequest, id:string | number):Promise<IVacant | IVacantErrorResponse>{
+        return await this.httpClientUtil.put<IVacant, IVacantAddRequest>("vacants",vacant,id)
+    }
 }

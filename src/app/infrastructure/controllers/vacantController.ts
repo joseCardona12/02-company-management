@@ -18,6 +18,11 @@ class VacantController{
         console.log("data controller", data);
         return data
     }
+
+    async update(vacant:IVacantAddRequest, id:string | number):Promise<IVacant | IVacantErrorResponse>{
+        const data = await this.vacantService.update(vacant,id);
+        return data;
+    }
 }
 
 export default new VacantController();

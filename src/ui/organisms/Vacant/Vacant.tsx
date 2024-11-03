@@ -14,7 +14,10 @@ interface IVacantProps{
 export default function Vacant({title,vacancies}: IVacantProps):React.ReactNode{
     const {setOpenModal} = useOpenModal((state)=>state);
     const handleOpenModal = ():void =>{
-        setOpenModal(true);
+        setOpenModal({
+            state:true,
+            type:"ADD_VACANT"
+        });
     }
     return(
         <section className="main-section ">
@@ -29,7 +32,7 @@ export default function Vacant({title,vacancies}: IVacantProps):React.ReactNode{
             </div>
             <div className="section-cards">
                 {vacancies.map((vacant:IVacant,index:number)=>(
-                    <Card key={index}>
+                    <Card key={index} id={vacant.id}>
                         <h4>{vacant.title}</h4>
                         <p>{vacant.description}</p>
                         <p>State: <span style={{backgroundColor: "var(--color-purple-vacancy-normal)"}}>{vacant.status}</span></p>
