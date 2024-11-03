@@ -2,12 +2,15 @@
 import { Button } from "@/ui/atoms";
 import { SuitcaseIcon, BuildingIcon } from "@/assets/icons";
 import "./navigationStyles.scss";
-import { useSectionState } from "@/app/core/application/global-state";
+import { useLoadingState, useSectionState } from "@/app/core/application/global-state";
 
 export default function Navigation():React.ReactNode{
     const {section,setSection} = useSectionState((state)=>state);
+    const {setIsLoading} = useLoadingState((state)=>state);
     const handleChangeSection = (sectionChange:string):void =>{
         setSection(sectionChange);
+        setIsLoading(true);
+        setTimeout(()=>setIsLoading(false), 500);
     }
     return(
         <nav className="navigation">

@@ -1,0 +1,12 @@
+.content-loading{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: var(--padding-medium);
+    border-radius: var(--border-radius-medium);
+    background-color: var(--background-white);
+    gap: var(--padding-small);
+    border: 1px solid var(--border-color-gray);
+    box-shadow: var(--box-shadown-normal);
+}

@@ -4,6 +4,7 @@ import { useVacantsState } from "./vacantState";
 import { useVacantSelectState } from "./vacantSelect";
 import { useCompanyState } from "./companyState";
 import { useOpenModal } from "./openModalState";
+import { useLoadingState } from "./loadingState";
 
 export {
     usePaginationState,
@@ -12,4 +13,5 @@ export {
     useVacantSelectState,
     useCompanyState,
     useOpenModal,
+    useLoadingState,
 }

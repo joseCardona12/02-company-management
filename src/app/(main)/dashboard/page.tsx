@@ -6,6 +6,7 @@ import { VacantController, CompanyController } from "@/app/infrastructure/contro
 import ProviderSection from "@/app/ProviderSection";
 import { ICompanyResponse } from "@/app/core/application/dto/company";
 import { ICompany } from "@/app/core/application/dto/company/companyResponse";
+import ProviderLoading from "@/app/ProviderLoading";
 
 
 interface IDashboardProps{
@@ -34,15 +35,17 @@ export default async function Dashboard({searchParams}: IDashboardProps) {
         <ProviderPagination
         pagination={{page,totalPage: vacancies.totalPages}}
         > 
-            <div className="dashboard">
-                <Section>
-                    <ProviderSection
-                        vacancies={vacancies}
-                        companies={companies}
-                        companiesAll={companiesAll}
-                    />
-                </Section>
-            </div>
+            <ProviderLoading>
+                <div className="dashboard">
+                    <Section>
+                        <ProviderSection
+                            vacancies={vacancies}
+                            companies={companies}
+                            companiesAll={companiesAll}
+                        />
+                    </Section>
+                </div>
+            </ProviderLoading>
         </ProviderPagination>
     )
 }
