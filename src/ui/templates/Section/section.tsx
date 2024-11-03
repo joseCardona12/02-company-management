@@ -7,7 +7,7 @@ import {
   useOpenModal,
 } from "@/app/core/application/global-state";
 import { getIdByName } from "@/app/core/application/utils";
-import {IVacantAddRequest } from "@/app/core/application/dto/vacant";
+import { IVacantAddRequest } from "@/app/core/application/dto/vacant";
 import ModalCreate from "../ModalCreate/ModalCreate";
 import ModalUpdate from "../ModalUpdate/ModalUpdate";
 import { Modal } from "@/ui/organisms";
@@ -28,7 +28,7 @@ export default function Section({
   const [formData, setFormData] = useState<IVacantAddRequest>(initialFormData);
   const [selectValue, setSelectValue] = useState<string>("");
   const [selectValueCompanyId, setSelectValueCompanyId] = useState<string>("");
-  const { companies } = useCompanyState((state) => state); // Get companies for use in the select field
+  const { companies } = useCompanyState((state) => state);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -36,57 +36,56 @@ export default function Section({
     >
   ): void => {
     const { value, name } = e.target;
-    setFormData({
-      ...formData,
+    setFormData((prevData) => ({
+      ...prevData,
       [name]: value,
-    });
+    }));
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     const companyId = getIdByName(companies, selectValueCompanyId);
-    if(!companyId) return;
-    setFormData({
-      ...formData,
+    if (!companyId) return;
+    setFormData((prevData) => ({
+      ...prevData,
       status: selectValue,
       companyId: companyId.toString(),
-    });
+    }));
+  }, [selectValue, selectValueCompanyId, companies]);
 
-  }, [selectValue, selectValueCompanyId]);
   return (
     <div className="template">
       <Header title="Company Management" />
       <main className="main">
         {children}
-        {openModal.state && openModal.type === "ADD_VACANT" ? (
+        {openModal.state && openModal.type === "ADD_VACANT" && (
           <ModalCreate
             formData={formData}
             initialFormData={initialFormData}
             setFormData={setFormData}
             companies={companies}
-            onChange={(e)=>handleChange(e)}
+            onChange={handleChange}
             selectValue={selectValue}
             selectValueCompanyId={selectValueCompanyId}
             setSelectValue={setSelectValue}
             setSelectValueCompanyId={setSelectValueCompanyId}
           />
-        ) : null}
-        {openModal && openModal.type === "EDIT_VACANT" ? (
+        )}
+        {openModal.state && openModal.type === "EDIT_VACANT" && (
           <ModalUpdate
             formData={formData}
             initialFormData={initialFormData}
             setFormData={setFormData}
             companies={companies}
-            onChange={(e)=>handleChange(e)}
+            onChange={handleChange}
             selectValue={selectValue}
             selectValueCompanyId={selectValueCompanyId}
             setSelectValue={setSelectValue}
             setSelectValueCompanyId={setSelectValueCompanyId}
           />
-        ) : null} 
-        {openModal && openModal.type === "DELETE_VACANT" ? (
-          <ModalDelete
-          />
-        ): null}
+        )}
+        {openModal.state && openModal.type === "DELETE_VACANT" && (
+          <ModalDelete />
+        )}
       </main>
       <Footer />
     </div>
