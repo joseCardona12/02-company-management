@@ -1,6 +1,5 @@
-import { IVacantResponse } from "@/app/core/application/dto/vacant/vacantResponse";
 import { HttpClientUtil } from "../utils";
-import { IVacantRequest } from "@/app/core/application/dto/vacant/vacantRequest";
+import { IVacantAddRequest, IVacant, IVacantRequest, IVacantResponse,IVacantErrorResponse } from "@/app/core/application/dto/vacant";
 
 export default class VacantService{
     private httpClientUtil: HttpClientUtil;
@@ -11,5 +10,9 @@ export default class VacantService{
 
     async findAll({page,size}: IVacantRequest):Promise<IVacantResponse>{
         return await this.httpClientUtil.get<IVacantResponse>(`vacants?page=${page}&size=${size}`);
+    }
+
+    async create(vacant: IVacantAddRequest):Promise<IVacant | IVacantErrorResponse>{
+        return await this.httpClientUtil.post<IVacant,IVacantAddRequest>("vacants",vacant);
     }
 }

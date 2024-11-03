@@ -5,6 +5,7 @@ import { IVacantResponse } from "@/app/core/application/dto/vacant/vacantRespons
 import { VacantController, CompanyController } from "@/app/infrastructure/controllers";
 import ProviderSection from "@/app/ProviderSection";
 import { ICompanyResponse } from "@/app/core/application/dto/company";
+import { ICompany } from "@/app/core/application/dto/company/companyResponse";
 
 
 interface IDashboardProps{
@@ -28,6 +29,7 @@ export default async function Dashboard({searchParams}: IDashboardProps) {
 
     const vacancies: IVacantResponse = await VacantController.findAll({page,size});
     const companies: ICompanyResponse = await CompanyController.findAllByPagination({page,size});
+    const companiesAll: ICompany[] = await CompanyController.findAll();
     return (
         <ProviderPagination
         pagination={{page,totalPage: vacancies.totalPages}}
@@ -37,6 +39,7 @@ export default async function Dashboard({searchParams}: IDashboardProps) {
                     <ProviderSection
                         vacancies={vacancies}
                         companies={companies}
+                        companiesAll={companiesAll}
                     />
                 </Section>
             </div>

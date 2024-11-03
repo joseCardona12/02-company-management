@@ -3,6 +3,7 @@ import "./vacantStyles.scss";
 import { Button } from "@/ui/atoms";
 import { IconsPlus } from "@/assets/icons";
 import { IVacant } from "@/app/core/application/dto/vacant/vacantResponse";
+import { useOpenModal } from "@/app/core/application/global-state";
 
 
 interface IVacantProps{
@@ -11,6 +12,10 @@ interface IVacantProps{
 }
 
 export default function Vacant({title,vacancies}: IVacantProps):React.ReactNode{
+    const {setOpenModal} = useOpenModal((state)=>state);
+    const handleOpenModal = ():void =>{
+        setOpenModal(true);
+    }
     return(
         <section className="main-section ">
             <div className="section-title">
@@ -19,6 +24,7 @@ export default function Vacant({title,vacancies}: IVacantProps):React.ReactNode{
                     className="buttonNavigation"
                     icon={<IconsPlus />}
                     text="Add Vacant"
+                    onClick={handleOpenModal}
                  />
             </div>
             <div className="section-cards">

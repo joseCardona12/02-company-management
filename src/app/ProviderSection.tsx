@@ -2,22 +2,26 @@
 
 import { Vacant, Company } from "@/ui/organisms";
 import { IVacantResponse } from "./core/application/dto/vacant/vacantResponse";
-import { useSectionState, useVacantSelectState, useVacantsState } from "./core/application/global-state";
+import { useCompanyState, useSectionState, useVacantSelectState, useVacantsState } from "./core/application/global-state";
 import { ICompanyResponse } from "./core/application/dto/company";
 import { useEffect } from "react";
+import { ICompany } from "./core/application/dto/company/companyResponse";
 
 interface IProviderSectionProps{
     vacancies: IVacantResponse,
-    companies: ICompanyResponse
+    companies: ICompanyResponse,
+    companiesAll: ICompany[],
 }
-export default function ProviderSection({vacancies, companies}: IProviderSectionProps):React.ReactNode{
+export default function ProviderSection({vacancies, companies, companiesAll}: IProviderSectionProps):React.ReactNode{
     const {section} = useSectionState((state)=>state);
-    const {setVacants} = useVacantsState((state)=>state);
+    const {vacants,setVacants} = useVacantsState((state)=>state);
     const {vacantSelect} = useVacantSelectState((state)=>state);
+    const {setCompanies} = useCompanyState((state)=>state); //State for all companies in modal select
 
     useEffect(()=>{
         setVacants(vacancies.content);
-    },[vacancies])
+        setCompanies(companiesAll);
+    },[vacancies, companiesAll])
     return(
         <>
         {section === "companies" 

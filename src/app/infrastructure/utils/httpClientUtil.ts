@@ -1,5 +1,6 @@
 export default class HttpClientUtil{
-    private baseUrl:string = "http://vacantsbackendgates-production.up.railway.app/api/v1/";
+    private baseUrl:string = "https://vacantsbackendgates-production.up.railway.app/api/v1/";
+    
 
     constructor(urlClient?:string){
         this.baseUrl = urlClient || this.baseUrl;
@@ -11,6 +12,16 @@ export default class HttpClientUtil{
             headers,
             method:"GET",
             cache:"no-store"
+        });
+        return this.managementError(response);
+    }
+    async post<T, B>(url:string, body:B):Promise<T>{
+        const headers = this.getHeaders();
+        const response = await fetch(`${this.baseUrl}${url}`,{
+            headers,
+            method:"POST",
+            cache:"no-store",
+            body:JSON.stringify(body)
         });
         return this.managementError(response);
     }

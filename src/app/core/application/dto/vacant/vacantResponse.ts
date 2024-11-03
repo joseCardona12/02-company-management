@@ -54,3 +54,9 @@ export interface IVacantResponse{
     unsorted: boolean
     empty: boolean
   }
+
+  export interface IVacantErrorResponse{
+    status:string,
+    code:number,
+    message:string
+  }

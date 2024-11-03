@@ -1,6 +1,5 @@
-import { IVacantResponse } from "@/app/core/application/dto/vacant/vacantResponse";
+import { IVacant, IVacantAddRequest, IVacantErrorResponse, IVacantRequest, IVacantResponse } from "@/app/core/application/dto/vacant";
 import { VacantService } from "../services";
-import { IVacantRequest } from "@/app/core/application/dto/vacant/vacantRequest";
 
 class VacantController{
     private vacantService: VacantService
@@ -12,6 +11,12 @@ class VacantController{
         const data = await this.vacantService.findAll(pagination);
         console.log("data controller", data);
         return data;
+    }
+
+    async create(vacant: IVacantAddRequest):Promise<IVacant | IVacantErrorResponse>{
+        const data = await this.vacantService.create(vacant);
+        console.log("data controller", data);
+        return data
     }
 }
 
