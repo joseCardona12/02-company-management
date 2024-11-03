@@ -43,3 +43,9 @@ export interface Sort {
     property:     string;
     ignoreCase:   boolean;
 }
+
+export interface ICompanyErrorResponse{
+    status:string,
+    code:number,
+    errors: string[]
+}

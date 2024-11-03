@@ -1,0 +1,11 @@
+.template{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--padding-medium);
+    height: 100%;
+
+    .main{
+        height: 80%;
+    }
+}

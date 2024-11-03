@@ -10,10 +10,9 @@ import { getIdByName } from "@/app/core/application/utils";
 import { IVacantAddRequest } from "@/app/core/application/dto/vacant";
 import ModalCreate from "../ModalCreate/ModalCreate";
 import ModalUpdate from "../ModalUpdate/ModalUpdate";
-import { Modal } from "@/ui/organisms";
 import ModalDelete from "../ModalDelete/ModalDelete";
 
-export default function Section({
+export default function SectionVacant({
   children,
 }: {
   children: React.ReactNode;

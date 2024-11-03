@@ -1,7 +1,9 @@
-import type { ICompanyRequest } from './companyRequest';
-import type{ ICompanyResponse } from './companyResponse';
+import type { ICompanyRequest, ICompanyAddRequest } from './companyRequest';
+import type{ ICompanyResponse, ICompanyErrorResponse } from './companyResponse';
 
 export {
     ICompanyRequest,
-    ICompanyResponse
+    ICompanyResponse,
+    ICompanyAddRequest,
+    ICompanyErrorResponse,
 }

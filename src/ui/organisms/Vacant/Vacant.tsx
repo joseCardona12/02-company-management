@@ -32,7 +32,7 @@ export default function Vacant({title,vacancies}: IVacantProps):React.ReactNode{
             </div>
             <div className="section-cards">
                 {vacancies.map((vacant:IVacant,index:number)=>(
-                    <Card key={index} id={vacant.id}>
+                    <Card key={index} id={vacant.id} section="vacant">
                         <h4>{vacant.title}</h4>
                         <p>{vacant.description}</p>
                         <p>State: <span style={{backgroundColor: "var(--color-purple-vacancy-normal)"}}>{vacant.status}</span></p>

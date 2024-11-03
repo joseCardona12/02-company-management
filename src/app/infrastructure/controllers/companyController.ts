@@ -1,5 +1,5 @@
-import { ICompanyRequest, ICompanyResponse } from "@/app/core/application/dto/company";
-import { ICompany } from "@/app/core/application/dto/company/companyResponse";
+import { ICompanyAddRequest, ICompanyRequest, ICompanyResponse } from "@/app/core/application/dto/company";
+import { ICompany, ICompanyErrorResponse } from "@/app/core/application/dto/company/companyResponse";
 import CompanyService from "@/app/infrastructure/services/companyService";
 
 class CompanyController{
@@ -16,6 +16,18 @@ class CompanyController{
 
     async findAll():Promise<ICompany[]>{
         const data = await this.companyService.findAll();
+        console.log("data company controller",data);
+        return data;
+    }
+
+    async create(company: ICompanyAddRequest):Promise<ICompany | ICompanyErrorResponse>{
+        const data = await this.companyService.create(company);
+        console.log("data company controller",data);
+        return data;
+    }
+
+    async update(company: ICompanyAddRequest, id:string | number):Promise<ICompany | ICompanyErrorResponse>{
+        const data = await this.companyService.update(company,id);
         console.log("data company controller",data);
         return data;
     }

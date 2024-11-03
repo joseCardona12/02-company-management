@@ -6,6 +6,7 @@ import { useCompanyState, useSectionState, useVacantSelectState, useVacantsState
 import { ICompanyResponse } from "./core/application/dto/company";
 import { useEffect } from "react";
 import { ICompany } from "./core/application/dto/company/companyResponse";
+import { Section, SectionCompany } from "@/ui/templates";
 
 interface IProviderSectionProps{
     vacancies: IVacantResponse,
@@ -26,21 +27,25 @@ export default function ProviderSection({vacancies, companies, companiesAll}: IP
         <>
         {section === "companies" 
             ?
-            <Company
-                title="Companies"
-                companies={companies.content}
-            />
+            <SectionCompany>
+                <Company
+                    title="Companies"
+                    companies={companies.content}
+                />
+            </SectionCompany>
             :
-            <Vacant 
-                title="Vacants" 
-                vacancies={
-                    vacantSelect.length > 0
-                    ?
-                    vacantSelect
-                    :
-                    vacancies.content
-                } 
-            />
+            <Section>
+                <Vacant 
+                    title="Vacants" 
+                    vacancies={
+                        vacantSelect.length > 0
+                        ?
+                        vacantSelect
+                        :
+                        vacancies.content
+                    } 
+                />
+            </Section>
         }   
         </>
     )

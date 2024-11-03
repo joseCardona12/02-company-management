@@ -1,6 +1,6 @@
-import { ICompanyRequest, ICompanyResponse } from "@/app/core/application/dto/company";
+import { ICompanyAddRequest, ICompanyRequest, ICompanyResponse } from "@/app/core/application/dto/company";
 import { HttpClientUtil } from "../utils";
-import { ICompany } from "@/app/core/application/dto/company/companyResponse";
+import { ICompany, ICompanyErrorResponse } from "@/app/core/application/dto/company/companyResponse";
 
 export default class CompanyService {
     private httpClientUtil: HttpClientUtil
@@ -14,5 +14,12 @@ export default class CompanyService {
 
     async findAll():Promise<ICompany[]>{
         return await this.httpClientUtil.get<ICompany[]>("company/all");
+    }
+    async create(company: ICompanyAddRequest):Promise<ICompany | ICompanyErrorResponse>{
+        return await this.httpClientUtil.post<ICompany, ICompanyAddRequest>("company", company);
+    }
+
+    async update(company: ICompanyAddRequest, id:string | number):Promise<ICompany | ICompanyErrorResponse>{
+        return await this.httpClientUtil.put<ICompany, ICompanyAddRequest>("company", company, id);
     }
 }

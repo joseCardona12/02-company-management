@@ -46,7 +46,7 @@ export default function ModalUpdate({
         setFormData(initialFormData);
         router.refresh();
     }
-    useEffect(()=>{
+    /* useEffect(()=>{
       const vacantForUpdate = searchElementById(vacants, parseInt(id.toString()));
       if(!vacantForUpdate) return;
       setFormData({
@@ -55,7 +55,7 @@ export default function ModalUpdate({
         status: vacantForUpdate.status,
         companyId: vacantForUpdate.company?.name.toString() || "0",
       });
-    })
+    }) */
     return(
         <Modal title="Edit Vacant">
             <form className="form">

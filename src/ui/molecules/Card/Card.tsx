@@ -6,12 +6,14 @@ import { useIdState, useOpenModal } from "@/app/core/application/global-state";
 
 interface ICardProps{
     children: React.ReactNode,
-    id:number | string
+    id:number | string,
+    section:string
 }
 
 export default function Card({
     children,
-    id
+    id,
+    section
 }: ICardProps):React.ReactNode{
     const {setOpenModal} = useOpenModal((state)=>state);
     const {setId} = useIdState((state)=>state);
@@ -24,6 +26,13 @@ export default function Card({
                 });
                 setId(id);
                 break;
+            case "EDIT_COMPANY":
+                setOpenModal({
+                    state:true,
+                    type:"EDIT_COMPANY",
+                });
+                setId(id);
+                break;
             case "DELETE_VACANT":
                 setOpenModal({
                     state:true,
@@ -31,6 +40,11 @@ export default function Card({
                 })
                 setId(id);
                 break;
+            case "DELETE_COMPANY":
+                setOpenModal({
+                    state:true,
+                    type:"DELETE_COMPANY",
+                })
             default:
                 "error";
         }
@@ -43,11 +57,11 @@ export default function Card({
             <div className="card-footer">
                 <Button 
                     className="buttonIcon"
-                    onClick={()=>handleSaveId(id, "EDIT_VACANT")}
+                    onClick={()=>handleSaveId(id, section === "vacant" ? "EDIT_VACANT" : "EDIT_COMPANY")}
                     icon={<EditIcon className="icon-left" />} />
                 <Button
                     className="buttonIcon"
-                    onClick={()=>handleSaveId(id, "DELETE_VACANT")}
+                    onClick={()=>handleSaveId(id, section === "vacant" ? "DELETE_VACANT" : "DELETE_COMPANY")}
                     icon={<DeleteIcon className="icon-right" />} />
             </div>
         </div>
