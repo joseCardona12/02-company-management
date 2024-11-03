@@ -20,12 +20,6 @@ export default function Modal({
                 <div className="modal-body">
                     {children}
                 </div>
-                <div className="modal-footer">
-                    <Button
-                        className="buttonModal"
-                        text="Add"
-                    />
-                </div>
             </div>
         </div>       
     )

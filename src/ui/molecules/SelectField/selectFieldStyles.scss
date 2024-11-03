@@ -1,0 +1,33 @@
+.content-select {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid var(--border-color-gray);
+    padding: var(--padding-small);
+    border-radius: var(--border-radius-small);
+    position: relative;
+
+    .select-options{
+        position: absolute;
+        top: 110%;
+        left: 0;
+        background-color: var(--background-white);
+        border: 1px solid var(--border-color-gray);
+        border-radius: var(--border-radius-small);
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        z-index: 10;
+
+        li{
+            list-style: none;
+            width: 100%;
+            padding: var(--padding-small);
+
+            &:hover{
+                background-color: var(--border-color-gray);
+            }
+
+        }
+
+    }
+}

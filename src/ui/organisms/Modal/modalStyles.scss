@@ -15,11 +15,16 @@
         padding: var(--padding-medium);
         border-radius: var(--border-radius-medium);
         width: 50%;
-        height: 50%;
+        height: auto;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
         gap: var(--padding-medium);
+
+        .form{
+            display: flex;
+            flex-direction: column;
+            gap: var(--padding-medium);
+        }
 
         .modal-header{
             display: flex;

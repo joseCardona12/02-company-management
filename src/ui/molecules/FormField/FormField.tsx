@@ -1,41 +1,23 @@
 import { Input } from "@/ui/atoms";
-import { Control, Controller, FieldError, FieldValues, Path } from "react-hook-form";
 
-interface IFormFieldProps<T extends FieldValues>{
+interface IFormFieldProps{
     label:string,
-    name:Path<T>,
-    type?:string,
-    control: Control<T>
-    error?: FieldError,
-    placeholder: string,
-    id?:string,
+    name:string,
+    value:string,
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void,
+    error: boolean,
 }
 
-export default function FormField <T extends FieldValues>({
-    label,
-    name,
-    type,
-    control,
-    error,
-    placeholder,
-    id
-}:IFormFieldProps<T>):React.ReactNode{
+export default function FormField({label,name,value,onChange, error}:IFormFieldProps):React.ReactNode{
     return(
         <div className="form-field">
-            <label htmlFor={id || label.toLocaleLowerCase()}>{label}</label>
-            <Controller
+            <label htmlFor={name}>{label}</label>
+            <Input
+                className="input inputModal"
                 name={name}
-                control={control}
-                render={({field})=>(
-                    <Input
-                        id={id || label.toLocaleLowerCase()}
-                        {...field}  
-                        placeholder={placeholder}
-                        error={error?.message}  
-                        type={type} 
-                    />
-                )}
-            
+                value={value}
+                onChange={onChange}
+                error={error}
             />
         </div>
     )

@@ -6,7 +6,6 @@ import { Button } from "@/ui/atoms";
 
 export default function Pagination():React.ReactNode{
     const {pagination, setPagination} = usePaginationState((state)=>state);
-    console.log(pagination);
 
     const handleChangePagination = (newPage: number):void =>{
         setPagination({page: newPage, totalPage: pagination.totalPage});

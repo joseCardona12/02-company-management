@@ -1,17 +1,19 @@
 import "./inputStyles.scss";
 
 interface IInputProps extends React.InputHTMLAttributes<HTMLInputElement>{
-    error?:string
+    error?:boolean,
+    className?:string
 }
 
 export default function Input({
     error,
+    className,
     ...props
 }:IInputProps):React.ReactNode{
     return(
         <>
-            <input className="input" {...props} />
-            {error && <p className="error">{error}</p>}
+            <input className={className} {...props} />
+            {error && <p className="error">{`Is required the field ${props.name}`}</p>}
         </>
     )
 }

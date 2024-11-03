@@ -1,9 +1,5 @@
-.input{
+.textarea{
     outline: none;
-    width: 100%;
-}
-
-.input.inputModal{
     border: 1px solid var(--border-color-gray);
     border-radius: var(--border-radius-medium);
     padding: var(--padding-small);
